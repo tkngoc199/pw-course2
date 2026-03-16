@@ -1,0 +1,63 @@
+1.
+- git commit --amend: vào giao diện VIM để thay đổi nội dung comment đã commit
+- git commit --amend -m"<message>": thay đổi trực tiếp nội dung comment đã commit
+- git restore --staged <file>: dùng để chuyển file cụ thể từ phân vùng staging về vùng working directory
+- git reset HEAD~1: xóa 1 commit và đưa file từ vùng repository về vùng working directory
+2.Hãy tưởng tượng có 1 folder lesson-3 mới được tạo. Hãy liệt kê các file theo từng vùng, liệt kê các commit và message tương ứng sau khi thao tác một loạt các lệnh sau (sẽ rất tuyệt vời nếu bạn không chạy trên máy tính thật, mà bạn chạy trong đầu, sẽ giúp bạn hiểu về Git rõ ràng hơn):
+a. Tạo 3 file: file1, file2, file3
+    i. Vùng working: k
+    ii. Vùng staging: k
+    iii. Vùng repository: k
+b. Chạy lệnh: git init
+    i. Vùng working: file1, file2, file3
+    ii. Vùng staging: k
+    iii. Vùng repository: k 
+c. Chạy lệnh: git commit -m”init project”
+    i. vùng working: file1, file2, file3
+    ii. vùng staging: k 
+    iii. vùng repository: k 
+d. Chạy lệnh: git add file1
+    i. vùng working: file2, file3
+    ii. vùng staging: file1
+    iii. vùng repository: k
+e. Chạy lệnh: git commit -m"add file"
+    i. vùng working: file2, file3
+    ii. vùng staging: k 
+    iii. vùng repository: file1
+f. Chạy lệnh: git add .
+    i. vùng working: k
+    ii. vùng staging: file2, file3
+    iii. vùng repository: file1
+g. Chạy lệnh: git restore --staged file2
+    i. vùng working: file2
+    ii. vùng staging: file3
+    iii. vùng repository: file1
+h. Chạy lệnh: git commit -m"add all files"
+    i. vùng working: file2
+    ii. vùng staging: k
+    iii. vùng repository: file1, file3
+i. Chạy lệnh: git reset HEAD~1
+    i. vùng working: file2, file3
+    ii. vùng staging: k
+    iii. vùng repository: file1 
+3. Hãy tưởng tượng có 1 folder lesson-3-git mới được tạo ra. Hãy liệt kê các file theo từng vùng sau khi thao tác các lệnh sau:
+a. Chạy lệnh: git init
+    i. vùng working: k
+    ii. vùng staging: k 
+    iii. vùng repository: k 
+b. Tạo file file1.txt, file2.txt, oops/file3.txt
+    i. vùng working: file1.txt, file2.txt, oops/file3.txt
+    ii. vùng staging: k 
+    iii. vùng repository: k 
+c. Thêm file .gitignore, thêm vào 2 dòng: file1.txt, oops/
+    i. vùng working: .gitignore, file1.txt, file2.txt, oops/file3.txt
+    ii. vùng staging: k 
+    iii. vùng repository: k 
+d. Chạy lệnh: git add .
+    i. vùng working: file1.txt, oops/file3.txt
+    ii. vùng staging: .gitignore, file2.txt
+    iii. vùng repository: k 
+e. Chạy lệnh git commit -m"init project"
+    i. vùng working: file1.txt, oops/file3.txt
+    ii. vùng staging: k
+    iii. vùng repository: .gitignore, file2.txt
